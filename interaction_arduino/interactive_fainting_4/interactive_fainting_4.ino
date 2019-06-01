@@ -17,7 +17,7 @@ boolean center = false;
 boolean right = false;
 
 long int lastTouch = -1;
-int resetAfter = 2000;
+int resetAfter = 1000;
 int afterSlideDelay = 500;
 int afterSlideOppositeDelay = 1500;
 
@@ -32,7 +32,7 @@ int SLIDERIGHT_TO_CENTER = 2;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Hello, This is Interactive Fainting");
+  // Serial.println("Hello, This is Interactive Fainting");
 
   pinMode(LED_L, OUTPUT);
   pinMode(LED_C, OUTPUT);
@@ -52,7 +52,7 @@ void loop() {
   if (millis()-lastTouch>resetAfter) {
     slide = 0;
     digitalWrite(LED, LOW);
-    Serial.println("Reset slide and timer.");
+    // Serial.println("Reset slide and timer.");
   }
 
   if (slide >= SLIDENONE) {
@@ -84,8 +84,8 @@ boolean ping(int pingPin, int ledPin) {
   if (d < maxD) {
     digitalWrite(ledPin, HIGH);
     pinActivated = true;
-    Serial.print("Now Activated ");
-    Serial.println(ledPin);
+    // Serial.print("Now Activated ");
+    // Serial.println(ledPin);
   } else {
     digitalWrite(ledPin, LOW);
     pinActivated = false;
