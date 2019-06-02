@@ -47,6 +47,7 @@ void setup() {
   //It need to check com port number or com port list
   println(Serial.list());
   myPort = new Serial(this, Serial.list()[2], 9600);
+ //  myPort = new Serial(this, "COM5", 9600);
   
   // String[] fontList = PFont.list();
   // printArray(fontList);
