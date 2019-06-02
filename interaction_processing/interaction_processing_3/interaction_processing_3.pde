@@ -44,7 +44,7 @@ void setup() {
   currentImage = loadImage(dataPath("") + '/' + fileList[0]);
   currentImage.resize(0, height);
   
-  
+  //It need to check com port number or com port list
   println(Serial.list());
   myPort = new Serial(this, Serial.list()[2], 9600);
   
@@ -80,10 +80,10 @@ void draw() {
       print(inByte);
       
       if (inByte == 'F') {
-        acvanceSlide();
+        reverseSlide();
       }
       if (inByte == 'B') {
-        reverseSlide();
+        advanceSlide();
       }
       
       nextImage = loadImage(dataPath("")  + '/' + fileList[imgIndex]);
@@ -93,7 +93,7 @@ void draw() {
   }
 }
 
-void acvanceSlide() {
+void advanceSlide() {
   imgIndex++;
   if (imgIndex >= fileList.length) {
     imgIndex = 0;
